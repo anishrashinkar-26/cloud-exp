@@ -1,0 +1,209 @@
+________________________________________
+💻 EXPERIMENT 11: Create & Configure Secure VM using AWS EC2 (A–Z)
+________________________________________
+🧠 0. First understand what you're building
+You are creating a virtual computer on the internet and securing it.
+This involves:
+•	Compute → EC2 (VM)
+•	Access → SSH (port 22)
+•	Security → Security Groups (firewall)
+•	Storage → EBS (disk)
+________________________________________
+🌐 1. Login to AWS Console
+•	Go to AWS Console
+•	Login using IAM user (preferred)
+________________________________________
+🔍 2. Open EC2 Dashboard
+🔧 Steps:
+1.	In search bar, type:
+👉 EC2
+2.	Click:
+👉 EC2 Dashboard
+________________________________________
+🧭 What you’ll see:
+•	Instances
+•	Key Pairs
+•	Security Groups
+•	Volumes
+👉 This is your VM control panel
+________________________________________
+🔑 3. Create Key Pair (MANDATORY)
+________________________________________
+🔧 Navigation:
+👉 Left panel → Key Pairs
+👉 Click → Create key pair
+________________________________________
+Fill:
+•	Name:
+secure-key
+•	Type: RSA
+•	Format:
+o	.pem (Linux/macOS)
+________________________________________
+👉 Click Create
+📥 File will download → KEEP IT SAFE
+________________________________________
+🧠 Why key pair?
+It replaces password login → more secure (public/private key auth)
+________________________________________
+🔐 4. Create Security Group (CRITICAL STEP)
+________________________________________
+🔧 Navigation:
+👉 Left panel → Security Groups
+👉 Click → Create security group
+________________________________________
+Fill:
+Name:
+secure-sg
+________________________________________
+Inbound Rules (VERY IMPORTANT):
+Click Add Rule
+Type	Port	Source
+SSH	22	My IP ✅
+HTTP	80	Anywhere (optional)
+________________________________________
+🚨 IMPORTANT LOGIC:
+•	SSH → My IP ONLY → secure access
+•	NOT 0.0.0.0/0 (say this in viva)
+________________________________________
+👉 Click Create
+________________________________________
+🧠 Think:
+Security Group = firewall for VM
+________________________________________
+🌐 5. Launch EC2 Instance (MAIN STEP)
+________________________________________
+🔧 Navigation:
+👉 EC2 Dashboard → Instances
+👉 Click → Launch Instance
+________________________________________
+Fill step-by-step:
+________________________________________
+🔹 Name:
+Secure-VM
+________________________________________
+🔹 AMI (Operating System)
+Choose:
+•	Ubuntu OR Amazon Linux
+________________________________________
+🔹 Instance Type
+•	Select:
+👉 t2.micro (free tier)
+________________________________________
+🔹 Key Pair
+•	Select:
+👉 secure-key
+________________________________________
+🔹 Network Settings
+Click Edit:
+•	VPC → Default (leave)
+•	Subnet → Default
+•	Auto-assign public IP → ENABLED ✅
+________________________________________
+🔹 Security Group
+•	Select:
+👉 secure-sg
+________________________________________
+🔹 Storage
+•	Default: 8 GB
+•	Enable:
+👉 Encryption (if option visible)
+________________________________________
+👉 Click Launch Instance
+________________________________________
+⏳ 6. Wait for Instance to Run
+•	Status:
+👉 Running ✔
+________________________________________
+🌍 7. Get Public IP
+Click your instance → see:
+👉 Public IPv4 address
+________________________________________
+🔌 8. Connect to Instance
+________________________________________
+Option 1: Browser (easy)
+•	Click Connect
+•	Use EC2 Instance Connect
+________________________________________
+Option 2: SSH (real method)
+chmod 400 secure-key.pem
+ssh -i secure-key.pem ec2-user@<public-ip>
+________________________________________
+🧠 Username:
+OS	Username
+Amazon Linux	ec2-user
+Ubuntu	ubuntu
+________________________________________
+🌐 9. (Optional but HIGH IMPACT) Install Web Server
+Inside VM:
+sudo apt update
+sudo apt install apache2
+________________________________________
+Edit page:
+cd /var/www/html
+sudo nano index.html
+Write:
+<h1>Secure VM Running</h1>
+________________________________________
+Open browser:
+http://<public-ip>
+✔ Website loads = full marks impact
+________________________________________
+🧠 10. What you actually configured (IMPORTANT)
+Component	What you did
+EC2	Created VM
+Key Pair	Secure login
+Security Group	Firewall
+Public IP	Internet access
+EBS	Storage
+Apache	Hosted app
+________________________________________
+🔐 Security Best Practices (EXAM GOLD)
+•	Restrict SSH to My IP
+•	Use key pair instead of password
+•	Close unused ports
+•	Enable encryption
+________________________________________
+⚠️ COMMON FAILURES
+Problem	Reason
+Can't connect	Wrong key / SG
+Website not loading	Port 80 not open
+SSH denied	Wrong username
+No public IP	Auto-assign disabled
+________________________________________
+💣 VIVA MASTER ANSWERS
+What is EC2?
+EC2 provides scalable virtual machines in AWS.
+________________________________________
+What is Security Group?
+It acts as a virtual firewall controlling inbound/outbound traffic.
+________________________________________
+Why restrict SSH?
+To prevent unauthorized access.
+________________________________________
+What is port 22?
+Default port for SSH.
+________________________________________
+Why encryption?
+To protect data at rest.
+________________________________________
+🧠 SYSTEM-LEVEL VIEW (your level)
+Think of this as:
+•	EC2 = compute node
+•	Security group = network ACL
+•	Key pair = asymmetric auth system
+•	Public IP = NAT mapping
+•	EBS = block device
+👉 This is literally cloud infrastructure provisioning
+________________________________________
+⚡ FINAL EXECUTION SCRIPT (MEMORIZE)
+1.	Open EC2
+2.	Create Key Pair
+3.	Create Security Group
+4.	Launch Instance
+5.	Attach Key + SG
+6.	Get Public IP
+7.	Connect
+8.	(Optional) Host website
+________________________________________
+
