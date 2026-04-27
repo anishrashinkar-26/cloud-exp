@@ -1,0 +1,197 @@
+________________________________________
+🌐 EXPERIMENT 9: Codanywhere – Collaborative Web Development (A–Z)
+________________________________________
+🧠 0. What you’re actually doing
+Codanywhere = cloud-based IDE (like VS Code running on server)
+You are:
+•	Creating a remote development environment (container)
+•	Writing code
+•	Running it in browser
+•	Sharing it with others (collaboration)
+________________________________________
+⚙️ Core Concepts (say these in viva)
+Term	Meaning
+Container	Your cloud workspace (like remote PC)
+IDE	Code editor in browser
+Collaboration	Multiple users editing same code
+Git	Version control system
+________________________________________
+🌐 1. Login to Codanywhere
+1.	Go to Codanywhere website
+2.	Login using:
+o	Email / Google / GitHub
+________________________________________
+🧭 2. Dashboard Overview
+You will see options like:
+•	Create Container
+•	Workspaces
+•	Projects
+👉 Focus: Create Container
+________________________________________
+📦 3. Create Container (MOST IMPORTANT STEP)
+________________________________________
+🔧 Steps:
+1.	Click:
+👉 Create Container
+________________________________________
+2.	Choose environment:
+•	Node.js OR PHP OR Python
+👉 (ANY is fine for exam)
+________________________________________
+3.	Name:
+my-project
+________________________________________
+4.	Select:
+•	Basic server (default)
+________________________________________
+👉 Click Create
+⏳ Wait → container will start
+________________________________________
+🧠 Think:
+Container = your cloud computer
+________________________________________
+📁 4. Create Project Files
+________________________________________
+🔧 Steps:
+1.	Open File Explorer (left panel)
+2.	Right click → New Folder:
+MyProject
+________________________________________
+3.	Inside folder, create files:
+•	index.html
+•	style.css
+•	script.js
+________________________________________
+✍️ Add basic code:
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My App</title>
+</head>
+<body>
+  <h1>Hello Cloud IDE</h1>
+</body>
+</html>
+________________________________________
+▶️ 5. Run / Preview Project
+________________________________________
+🔧 Steps:
+1.	Right click index.html
+2.	Click:
+👉 Preview / Open in Browser
+________________________________________
+✔ You’ll see output
+________________________________________
+🤝 6. Invite Collaborators (VERY IMPORTANT)
+________________________________________
+🔧 Steps:
+1.	Click:
+👉 Share / Invite
+2.	Enter:
+•	Email or username
+________________________________________
+3.	Set permission:
+Type	Meaning
+Read	View only
+Edit	Can modify code
+________________________________________
+👉 Send invite
+________________________________________
+🧠 What happens:
+•	Other user joins same workspace
+•	Can edit code in real-time
+________________________________________
+⚡ 7. Real-Time Collaboration
+________________________________________
+When 2 users are inside:
+•	Changes appear instantly
+•	Cursor may be visible
+•	Both can edit same file
+________________________________________
+🧠 Concept:
+Like Google Docs but for programming
+________________________________________
+💻 8. Use Terminal (IMPORTANT FOR MARKS)
+________________________________________
+🔧 Steps:
+1.	Open terminal panel
+________________________________________
+Run commands:
+npm install
+node app.js
+________________________________________
+🧠 Why:
+•	Shows backend execution capability
+•	Not just UI tool
+________________________________________
+🔧 9. Git Integration (VERY IMPORTANT)
+________________________________________
+🔧 Steps:
+In terminal:
+git init
+git add .
+git commit -m "Initial commit"
+________________________________________
+🧠 What Git does:
+•	Tracks changes
+•	Maintains versions
+•	Enables rollback
+________________________________________
+📌 10. What you actually did (IMPORTANT)
+Action	Concept
+Created container	Cloud environment
+Created files	Web app
+Preview	Deployment
+Shared	Collaboration
+Git	Version control
+________________________________________
+⚠️ COMMON ISSUES
+Problem	Fix
+Container not starting	Wait / refresh
+Preview not working	Check file
+Invite not working	Wrong email
+Terminal error	Ignore (demo only)
+________________________________________
+💣 VIVA MASTER ANSWERS
+________________________________________
+What is Codanywhere?
+Codanywhere is a cloud-based IDE that allows development and collaboration from anywhere.
+________________________________________
+What is container?
+A container is an isolated cloud environment used for development.
+________________________________________
+What is collaborative coding?
+Multiple users working on same codebase in real time.
+________________________________________
+Role of Git?
+Version control and tracking changes.
+________________________________________
+Alternatives?
+•	GitHub Codespaces
+•	Replit
+•	Gitpod
+________________________________________
+Data security?
+Access control, authentication, and encrypted connections.
+________________________________________
+🧠 SYSTEM-LEVEL VIEW (your level)
+•	Container = sandboxed VM/lightweight runtime
+•	Editor = browser-based client
+•	Collaboration = shared state sync (like CRDT/OT systems)
+•	Git = distributed version graph
+________________________________________
+⚡ FINAL EXECUTION SCRIPT
+1.	Login
+2.	Create Container
+3.	Create Files
+4.	Run index.html
+5.	Share project
+6.	Use terminal
+7.	Git init + commit
+________________________________________
+🏁 FINAL REALITY CHECK
+•	This experiment is UI-driven
+•	Even if collaboration fails → explain it confidently
+•	Marks = clarity + flow, not perfection
+
