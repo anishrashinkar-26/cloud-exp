@@ -1,0 +1,232 @@
+🔐 EXPERIMENT 10: AWS IAM (A–Z COMPLETE GUIDE)
+________________________________________
+🧠 0. First understand the system (VERY IMPORTANT)
+Before clicking anything:
+IAM = Gatekeeper of AWS
+It controls:
+•	Who can log in
+•	What they can access
+•	What actions they can perform
+Core entities:
+Component	Meaning
+User	Individual identity
+Group	Collection of users
+Policy	Permission rules
+Role	Temporary access
+________________________________________
+🌐 1. Login to AWS Console
+🔧 Steps:
+1.	Open:
+👉 https://console.aws.amazon.com
+2.	Login using:
+•	Root account OR IAM user
+________________________________________
+⚠️ Important:
+•	Root = full power (use only for setup)
+•	IAM user = restricted (recommended)
+________________________________________
+🔍 2. Open IAM Dashboard
+🔧 Steps:
+1.	In top search bar → type:
+👉 IAM
+2.	Click:
+👉 IAM (Identity and Access Management)
+________________________________________
+🧭 What you’ll see (LEFT PANEL):
+•	Dashboard
+•	Users
+•	Groups
+•	Roles
+•	Policies
+👉 This is your control center
+________________________________________
+👤 3. Create IAM User
+________________________________________
+🔧 Navigation:
+👉 Left panel → Users
+👉 Click → Create user
+________________________________________
+🔹 Step-by-step:
+1. Username
+•	Enter:
+test-user
+________________________________________
+2. Access Type
+You’ll see options like:
+•	☑ Provide user access to AWS Management Console
+•	☑ Programmatic access (optional)
+👉 For exam:
+✔ Enable Console access
+________________________________________
+3. Password
+•	Auto-generated OR custom
+________________________________________
+👉 Click Next
+________________________________________
+🔐 4. Assign Permissions (VERY IMPORTANT PART)
+You will see options:
+Option A: Add user to group
+Option B: Copy from another user
+Option C: Attach policies directly
+________________________________________
+✅ Use this in exam (simplest):
+👉 Attach policies directly
+________________________________________
+🔧 Steps:
+1.	Search:
+AdministratorAccess
+2.	Select it ✔
+________________________________________
+🧠 What this means:
+•	Full access (for demo/testing)
+•	NOT recommended in real systems
+________________________________________
+👉 Click Next
+________________________________________
+📋 5. Review & Create
+•	Review details
+•	Click:
+👉 Create User
+________________________________________
+📥 Optional:
+•	Download .csv (credentials)
+________________________________________
+👥 6. Create IAM Group
+________________________________________
+🔧 Navigation:
+👉 Left panel → Groups
+👉 Click → Create group
+________________________________________
+Steps:
+1.	Group name:
+S3-Users
+2.	Attach policy:
+Search:
+AmazonS3FullAccess
+Select ✔
+________________________________________
+👉 Click Create group
+________________________________________
+➕ Add user to group:
+•	Open group → Add users
+•	Select test-user
+________________________________________
+🧠 Why groups?
+Instead of assigning permissions individually, we assign to group → scalable
+________________________________________
+🎭 7. Create IAM Role
+________________________________________
+🔧 Navigation:
+👉 Left panel → Roles
+👉 Click → Create role
+________________________________________
+Steps:
+1. Trusted entity
+•	Select:
+👉 AWS Service
+________________________________________
+2. Use case:
+👉 Select:
+•	EC2
+________________________________________
+👉 Click Next
+________________________________________
+3. Permissions
+Search:
+AmazonEC2ReadOnlyAccess
+Select ✔
+________________________________________
+4. Name:
+EC2-ReadOnly-Role
+________________________________________
+👉 Click Create role
+________________________________________
+🧠 What is happening:
+•	You created a role EC2 can assume
+•	It allows read-only EC2 access
+________________________________________
+🔄 8. Test IAM User Access
+________________________________________
+🔧 Steps:
+1.	Logout from root
+2.	Login using:
+o	IAM username
+o	Password
+________________________________________
+🔍 Try accessing:
+•	EC2
+•	S3
+________________________________________
+🧠 Observe:
+•	If limited policy → restricted access
+•	If admin → full access
+________________________________________
+🔐 9. Concepts You MUST Understand (for viva)
+________________________________________
+🔹 IAM Policy
+•	JSON document defining permissions
+Example:
+•	Allow S3 read
+•	Deny EC2 delete
+________________________________________
+🔹 Least Privilege
+Give ONLY required permissions, nothing extra
+________________________________________
+🔹 MFA (Multi-Factor Authentication)
+•	Adds extra security layer (OTP, device)
+________________________________________
+🔹 Role vs User
+User	Role
+Permanent identity	Temporary access
+Has credentials	No long-term credentials
+________________________________________
+🧠 10. FULL FLOW (MENTAL MODEL)
+Login → IAM →
+Create User →
+Assign Policy →
+(Optional: Group) →
+Create Role →
+Test Access
+________________________________________
+⚠️ COMMON EXAM MISTAKES
+Mistake	Fix
+Can’t find IAM	Use search bar
+User login fails	Check console access enabled
+No permissions	Policy not attached
+Confusion roles	Remember: roles = temporary
+________________________________________
+💣 VIVA MASTER ANSWERS
+What is IAM?
+IAM is a service that controls authentication and authorization in AWS.
+________________________________________
+What is Policy?
+A JSON document defining permissions.
+________________________________________
+Why groups?
+Simplifies permission management.
+________________________________________
+What is role?
+Temporary access for services/users.
+________________________________________
+Least privilege?
+Minimum required access only.
+________________________________________
+🧠 Real Understanding (your level)
+Think like system:
+•	IAM = access control layer
+•	Policies = rule engine
+•	Roles = token-based delegation
+•	Groups = permission abstraction
+________________________________________
+⚡ FINAL EXECUTION CHECKLIST (FOR EXAM)
+Just remember this:
+1.	Open IAM
+2.	Create User
+3.	Attach Policy
+4.	Create Group
+5.	Create Role
+6.	Explain access
+________________________________________
+When you’re ready, say “next”
+I’ll take you through EC2 Secure VM (Experiment 11) with same depth (even more practical-heavy).
+
